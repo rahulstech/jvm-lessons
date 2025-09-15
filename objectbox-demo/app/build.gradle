@@ -1,0 +1,56 @@
+buildscript {
+    ext.objectboxVersion = "4.3.1"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
+    }
+}
+
+plugins {
+    // Kotlin JVM plugin
+    id 'org.jetbrains.kotlin.jvm' version '2.0.20'
+
+    // Application plugin for CLI apps
+    id 'application'
+
+    // KAPT for annotation processing (needed by ObjectBox)
+    id 'org.jetbrains.kotlin.kapt' version '2.0.20'
+}
+
+// apply ObjectBox plugin from buildscript classpath
+apply plugin: 'io.objectbox'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Testing
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.0'
+
+    // Example dependency
+    implementation 'com.google.guava:guava:33.2.1-jre'
+
+    // ObjectBox
+    implementation("io.objectbox:objectbox-linux:$objectboxVersion")
+    kapt "io.objectbox:objectbox-processor:$objectboxVersion"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+application {
+    mainClass = 'rahulstech.demo.objectbox.AppKt'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

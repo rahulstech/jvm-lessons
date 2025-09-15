@@ -1,0 +1,34 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '2.1.0' apply false
+}
+
+group = 'github.rahulstech.retrofitexample'
+version = '1.0'
+
+allprojects {
+    apply plugin: "org.jetbrains.kotlin.jvm"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+
+        def vRetrofit = '2.11.0'
+        def vCoroutines = '1.10.1'
+
+        implementation "com.squareup.retrofit2:retrofit:$vRetrofit"
+        implementation "com.squareup.retrofit2:converter-gson:$vRetrofit"
+
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$vCoroutines"
+
+        testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+    kotlin {
+        jvmToolchain(21)
+    }
+}
