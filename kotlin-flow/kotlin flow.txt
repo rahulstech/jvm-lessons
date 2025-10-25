@@ -1,0 +1,40 @@
+channelflow
+===========
+
+fun test1(): Flow<Int> = flow {
+
+val data = flowOf(1,2,3)
+data.collect { v ->
+// the following call of emit will thorw an IllegalStateException
+// infact any call of suspend function inside collect will throw this exception
+// we can not call any suspend function inside the collect
+emit(v)
+}
+}
+
+// solution 1 (good but not better)
+fun test2(): Flow<Int> = flow {
+val data = flowOf(1,2,3)
+data.onStart{ emit(0) }
+.flatMapLatest { v ->
+flowOf(v) // return flow from flatMapLatest 
+}
+}
+
+// solution 2 (better)
+fun test3(): Flow<Inte> = channelFlow {
+val data = flowOf(1,2,3)
+data.collect { v ->
+// send and emit has same purpose but send is used execlusive for channelFlow
+// and callbackFlow. in case of normal flow as can not call any blocking (suspend) function inside collect, but there is no such issue in case of these flows
+// so cases where we need to perform some blocking operation i.e. call some suspend function then channelFlow or callbackFlow is ideal
+send(v)
+}
+}
+
+combine
+=======
+
+combine(Flows, Transform)-> combines the latest results from two or more flows and transform the result for the next step. Transform function has only one array parameter. 
+Note: the Transform function is called until each of the flow is emitted at least once.
+use this flow when on the next step you need results from all the steps collectively. 
