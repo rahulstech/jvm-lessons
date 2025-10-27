@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="/media/acer/f47ac4cd-7683-438f-b8d2-3f03db45fe134/coding/jvm-lessons" vcs="Git" />
   </component>
 </project>

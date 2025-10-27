@@ -5,13 +5,14 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="" />
+        <option name="gradleJvm" value="21" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/retrofit-complex-example" />
-            <option value="$PROJECT_DIR$/retrofit-file-upload" />
-            <option value="$PROJECT_DIR$/weather-app" />
+            <option value="/media/acer/f47ac4cd-7683-438f-b8d2-3f03db45fe134/coding/jvm-lessons/retrofit-example" />
+            <option value="/media/acer/f47ac4cd-7683-438f-b8d2-3f03db45fe134/coding/jvm-lessons/retrofit-example/auth-example" />
+            <option value="/media/acer/f47ac4cd-7683-438f-b8d2-3f03db45fe134/coding/jvm-lessons/retrofit-example/retrofit-complex-example" />
+            <option value="/media/acer/f47ac4cd-7683-438f-b8d2-3f03db45fe134/coding/jvm-lessons/retrofit-example/retrofit-file-upload" />
+            <option value="/media/acer/f47ac4cd-7683-438f-b8d2-3f03db45fe134/coding/jvm-lessons/retrofit-example/weather-app" />
           </set>
         </option>
       </GradleProjectSettings>

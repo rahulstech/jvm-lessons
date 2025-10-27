@@ -5,4 +5,4 @@ rootProject.name = 'retrofit-example'
 include ':retrofit-complex-example'
 include ':weather-app'
 include ':retrofit-file-upload'
-
+include 'auth-example'

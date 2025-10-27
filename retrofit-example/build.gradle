@@ -1,6 +1,16 @@
+buildscript {
+    ext.kotlin_version = '2.1.0'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '2.1.0' apply false
 }
+apply plugin: 'kotlin'
 
 group = 'github.rahulstech.retrofitexample'
 version = '1.0'
@@ -31,4 +41,13 @@ allprojects {
     kotlin {
         jvmToolchain(21)
     }
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
+kotlin {
+    jvmToolchain(21)
 }
